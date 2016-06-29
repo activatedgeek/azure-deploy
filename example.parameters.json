@@ -1,0 +1,35 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "0.1.0",
+  "parameters": {
+    "sshKeyData": {
+      "value": "ssh-rsa MYsshPublicKeyData=== user@machine"
+    },
+    "privateVMs":{
+      "value":[
+        {
+          "name":"app0",
+          "size":"Standard_D2",
+          "subnet":"app",
+          "ansible_groups":"app,appA"
+        },
+        {
+          "name":"app1",
+          "size":"Standard_D2",
+          "subnet":"app",
+          "ansible_groups":"app,appB"
+        }
+      ]
+    },
+    "publicVMs":{
+      "value":[
+        {
+          "name":"edge0",
+          "size":"Standard_D1",
+          "subnet":"public",
+          "ansible_groups":"edge"
+        }
+      ]
+    }
+  }
+}
